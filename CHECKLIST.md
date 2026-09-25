@@ -9,7 +9,7 @@ no [`README.md`](README.md).
 ## O cenário
 
 A página da Harmonia Instrumentos Musicais **está no ar e parece funcionar**. Abra no navegador:
-o layout está alinhado, as cores estão certas, os botões clicam. Nenhum cliente que enxerga
+o layout está alinhado, as cores estão certas, os botões clicam. Nenhum cliente que enxerga.
 reclamou.
 
 Mas a loja recebeu uma reclamação de um cliente que usa leitor de tela: ele não consegue
