@@ -61,11 +61,28 @@
     #miolo { flex-direction:column; }
     .lateral { flex-basis:auto; width:100%; }
     #topo { align-items:flex-start; }
+    
+  }
+   .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+  }
+
+  .skip-link:focus {
+    left: 16px;
+    top: 16px;
+    background: #ffffff;
+    color: #000000;
+    padding: 10px 16px;
+    z-index: 1000;
   }
 </style>
 </head>
 <body>
-
+<a href="#conteudo-principal" class="skip-link">
+  Ir para o conteúdo principal
+</a>
 <div class="wrap">
 
   <!-- LANDMARK: o antigo <div id="topo"> foi substituído por <header> -->
@@ -103,7 +120,7 @@
   <div id="miolo">
 
     <!-- LANDMARK: conteúdo principal agora está dentro de <main> -->
-    <main id="conteudo">
+    <main id="conteudo-principal" tabindex="-1">
 
       <!-- CABEÇALHOS: o antigo "h1 falso" foi transformado em um <h1> real -->
       <h1>Loja de Instrumentos</h1>
