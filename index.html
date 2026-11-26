@@ -94,6 +94,15 @@
     :focus-visible, .botao:focus { outline-color:#a9d2ff; }
   }
 
+
+  @media (prefers-reduced-motion: no-preference) {
+    .botao { transition: background-color .15s ease; }
+    .botao:not(:disabled):hover { background-color:#982d22; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  }
+
 </style>
 </head>
 <body>
