@@ -109,6 +109,27 @@
   #confirmacao { display:none; }
   #confirmacao:target { display:block; padding:12px; border:2px solid currentColor; }
 
+
+  #conteudo-principal, #topo > div, fieldset { min-width:0; }
+  .wrap { width:100%; }
+  .tabela-scroll { overflow-x:auto; max-width:100%; }
+  .tabela-scroll table { min-width:460px; }
+  .botao { min-height:44px; max-width:100%; white-space:normal; }
+  #menu a { padding:10px 4px; }
+  input { max-width:100%; }
+  @media (min-width:1024px) { #miolo { flex-direction:row; } }
+  @media (max-width:1023px) { #miolo { flex-direction:column; gap:20px; } #conteudo-principal, .lateral { width:100%; flex:0 1 auto; } }
+  @media (max-width:767px) {
+    #miolo, #topo, #menu, #trilha, #rodape { padding:14px; }
+    .titulo-principal { font-size:clamp(19px,5vw,25px); }
+    #topo { gap:12px; }
+    #menu ul { gap:6px 12px; }
+    h1 { font-size:24px; }
+    .botao { width:100%; }
+    fieldset { padding:10px; }
+    .opcao { padding:5px 0; }
+  }
+
 </style>
 </head>
 <body>
@@ -133,10 +154,10 @@
   <nav id="menu" aria-label="Navegação principal">
     <ul>
       <li><a href="index.html">Início</a></li>
-      <li><a href="guitarras.html">Guitarras</a></li>
-      <li><a href="baterias.html">Baterias</a></li>
-      <li><a href="teclados.html">Teclados</a></li>
-      <li><a href="contato.html">Contato</a></li>
+      <li><a href="#titulo-guitarras">Guitarras</a></li>
+      <li><a href="#titulo-baterias">Baterias</a></li>
+      <li><a href="#titulo-categorias">Teclados</a></li>
+      <li><a href="#titulo-contato">Contato</a></li>
     </ul>
   </nav>
 
@@ -144,7 +165,7 @@
   <nav id="trilha" aria-label="Trilha de navegação">
     <ol>
       <li><a href="index.html">Início</a></li>
-      <li><a href="guitarras.html">Guitarras</a></li>
+      <li><a href="#titulo-guitarras">Guitarras</a></li>
       <li aria-current="page">Guitarras Elétricas</li>
     </ol>
   </nav>
@@ -197,7 +218,7 @@
 
       <section aria-labelledby="titulo-baterias">
         <h2 id="titulo-baterias">Baterias</h2>
-        <p>Kits acústicos e eletrônicos para estúdio e palco. <a href="baterias.html">Conheça nossa linha de baterias</a>.</p>
+        <p>Kits acústicos e eletrônicos para estúdio e palco. <a href="#titulo-baterias">Conheça nossa linha de baterias</a>.</p>
         <h3>Bateria Eletrônica</h3>
         <p>Modelos com pads de mesh e módulo de sons integrado.</p>
       </section>
@@ -219,7 +240,8 @@
         <h2 id="titulo-comparativo">Comparativo de modelos</h2>
 
         <!-- TABELA: adicionados <caption>, <th> e scope para relacionar cabeçalhos e dados -->
-        <table>
+        <div class="tabela-scroll" role="region" aria-label="Tabela comparativa com rolagem" tabindex="0">
+<table>
           <caption>Comparativo de modelos de guitarra</caption>
           <thead>
             <tr>
@@ -250,6 +272,7 @@
             </tr>
           </tbody>
         </table>
+</div>
       </section>
 
       <section aria-labelledby="titulo-contato">
