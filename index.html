@@ -103,6 +103,12 @@
     *, *::before, *::after { animation:none !important; transition:none !important; scroll-behavior:auto !important; }
   }
 
+
+  input[type=tel] { width:100%; padding:9px; border:1px solid #8391a6; border-radius:5px; margin-bottom:12px; font:inherit; }
+  .ajuda { font-size:14px; margin:-6px 0 12px; }
+  #confirmacao { display:none; }
+  #confirmacao:target { display:block; padding:12px; border:2px solid currentColor; }
+
 </style>
 </head>
 <body>
@@ -247,27 +253,28 @@
       </section>
 
       <section aria-labelledby="titulo-contato">
-        <h2 id="titulo-contato">Fale com um vendedor</h2>
+        <h2 id="titulo-contato">Cadastro e contato com vendedor</h2>
 
         <div class="aviso" id="aviso-obrigatorios">Os campos indicados como obrigatórios precisam ser preenchidos.</div>
 
         <!-- FORMULÁRIO: labels, required, mensagens de erro e agrupamentos foram melhorados -->
-        <form action="/enviar" method="post" aria-describedby="aviso-obrigatorios">
+        <p>Cadastro demonstrativo: use apenas dados fictícios. Nenhum dado será armazenado ou enviado.</p>
+        <form action="#confirmacao" method="get" aria-describedby="aviso-obrigatorios">
 
           <!-- LABEL: associado ao campo por for/id; required informa obrigatoriedade programaticamente -->
         <label for="nome">Nome completo (obrigatório)</label>
-          <input type="text" id="nome" name="nome" autocomplete="name" required>
+          <input type="text" id="nome" autocomplete="name" required>
 
           <label for="email">E-mail (obrigatório)</label>
-          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
-          <div class="erro" id="erro-email">Digite um endereço de e-mail válido, como nome@exemplo.com.</div>
+          <input type="email" id="email" autocomplete="email" required aria-describedby="erro-email">
+          <div class="ajuda" id="erro-email">Digite um endereço de e-mail válido, como nome@exemplo.com.</div>
 
           <label for="telefone">Telefone</label>
-          <input type="text" id="telefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000">
+          <input type="tel" id="telefone" autocomplete="tel" placeholder="(00) 00000-0000">
 
-          <label for="senha">Crie uma senha</label>
-          <input type="password" id="senha" name="senha" autocomplete="new-password" aria-describedby="erro-senha">
-          <div class="erro" id="erro-senha">Informe uma senha válida de acordo com os requisitos do cadastro.</div>
+          <label for="senha">Crie uma senha (obrigatório)</label>
+          <input type="password" id="senha" autocomplete="new-password" required minlength="8" aria-describedby="erro-senha">
+          <div class="ajuda" id="erro-senha">Use pelo menos 8 caracteres fictícios.</div>
 
           <!-- RADIO: fieldset/legend informam ao leitor de tela qual é a pergunta do grupo -->
           <fieldset>
@@ -290,23 +297,24 @@
           <fieldset>
             <legend>Assuntos de interesse</legend>
             <div class="opcao">
-              <input type="checkbox" name="interesses" id="i1" value="guitarras">
+              <input type="checkbox" id="i1" value="guitarras">
               <label for="i1">Guitarras</label>
             </div>
             <div class="opcao">
-              <input type="checkbox" name="interesses" id="i2" value="baterias">
+              <input type="checkbox" id="i2" value="baterias">
               <label for="i2">Baterias</label>
             </div>
             <div class="opcao">
-              <input type="checkbox" name="interesses" id="i3" value="teclados">
+              <input type="checkbox" id="i3" value="teclados">
               <label for="i3">Teclados</label>
             </div>
           </fieldset>
 
           <!-- AÇÃO: antigo <a href="#" onclick> substituído por <button type="submit"> -->
-        <p><button type="submit" class="botao">Enviar</button></p>
+        <p><button type="submit" class="botao">Validar cadastro</button></p>
 
         </form>
+<p id="confirmacao" tabindex="-1">Validação concluída. Este cadastro é apenas demonstrativo.</p>
       </section>
 
     </main>
